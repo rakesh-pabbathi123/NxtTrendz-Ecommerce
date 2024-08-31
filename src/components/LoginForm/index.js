@@ -25,6 +25,7 @@ class LoginForm extends Component {
 
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
+      path: '/',
     })
     history.replace('/')
   }
@@ -64,6 +65,7 @@ class LoginForm extends Component {
           className="password-input-field"
           value={password}
           onChange={this.onChangePassword}
+          placeholder="Password"
         />
       </>
     )
@@ -82,6 +84,7 @@ class LoginForm extends Component {
           className="username-input-field"
           value={username}
           onChange={this.onChangeUsername}
+          placeholder="Username"
         />
       </>
     )
@@ -118,6 +121,17 @@ class LoginForm extends Component {
           </button>
           {showSubmitError && <p className="error-message">*{errorMsg}</p>}
         </form>
+        <footer className="footer">
+          <p className="footer-text">
+            Build by: Rakesh Pabbathi
+            <br />
+            Username: rahul
+            <br />
+            Password: rahul@2021
+            <br />
+            Log in and explore it
+          </p>
+        </footer>
       </div>
     )
   }

@@ -51,14 +51,15 @@ class PrimeDealsSection extends Component {
         primeDeals: updatedData,
         apiStatus: apiStatusConstants.success,
       })
-    } else if (response.status === 401) {
+    }
+    if (response.status === 401) {
       this.setState({
         apiStatus: apiStatusConstants.failure,
       })
     }
   }
 
-  renderPrimeDealsList = () => {
+  renderPrimeDealsListView = () => {
     const {primeDeals} = this.state
     return (
       <div>
@@ -81,7 +82,7 @@ class PrimeDealsSection extends Component {
   )
 
   renderLoadingView = () => (
-    <div className="products-loader-container">
+    <div className="primedeals-loader-container">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -90,7 +91,7 @@ class PrimeDealsSection extends Component {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderPrimeDealsList()
+        return this.renderPrimeDealsListView()
       case apiStatusConstants.failure:
         return this.renderPrimeDealsFailureView()
       case apiStatusConstants.inProgress:
